@@ -28,22 +28,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* ✅ Navbar */}
-        <nav className="bg-blue-600 text-white p-4">
-          <div className="container mx-auto flex justify-between">
-            <a href="/" className="text-lg font-bold">
-              My Website
-            </a>
-            <div>
-              <a href="/about" className="mx-2">
-                About
-              </a>
-              <a href="/contact" className="mx-2">
-                Contact
-              </a>
-            </div>
-          </div>
-        </nav>
         {children}
       </body>
     </html>
