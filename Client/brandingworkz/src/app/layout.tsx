@@ -1,15 +1,17 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Style_Script } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/component/SmoothScroll"; // Import the client component
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+const styleScript = Style_Script({
+  weight: "400",
+  variable: "--font-style-script",
   subsets: ["latin"],
 });
 
@@ -20,15 +22,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${styleScript.variable} antialiased`}
       >
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>{" "}
+        {/* Wrap everything inside SmoothScroll */}
       </body>
     </html>
   );
